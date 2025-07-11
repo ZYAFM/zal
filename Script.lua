@@ -1,12 +1,93 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+local u1,u2,u3,u4,u5,u6,u7=game:GetService("Players"),game:GetService("Players").LocalPlayer,game:GetService("RunService"),game:GetService("UserInputService"),game:GetService("StarterGui"),workspace.CurrentCamera,true
+local u8=Enum.KeyCode.E
+local u9=100
+local u10=0.15
+local u11=0.12
+local u12="HumanoidRootPart"
+local u13=true
+local u14=true
+local u15=true
 
-]]--
+local c1=Drawing.new("Circle")
+c1.Visible=true
+c1.Color=Color3.fromRGB(255,0,0)
+c1.Radius=u9
+c1.Thickness=1
+c1.Transparency=0.75
+c1.Position=u7.ViewportSize/2
 
-local v0=false;local v1=991 -(21 + 880) ;local v2=0.02 + 0 ;local v3=957.08 -(892 + 65) ;local v4=false;local v5="HumanoidRootPart";local v6=false;local v7=Enum.KeyCode.E;local v8=game:GetService("RunService");local v9=game:GetService("UserInputService");local v10=game:GetService("StarterGui");local v11=game:GetService("Players");v10:SetCore("SendNotification",{Title="Universal Aimbot",Text="made by za_lvy",Duration=11 -6 });local v12=Drawing.new("Circle");v12.Visible=true;v12.Thickness=1 -0 ;v12.Radius=v1;v12.Transparency=0.8 -0 ;v12.Color=Color3.fromRGB(255,478 -(87 + 263) ,308 -(67 + 113) );v12.Position=workspace.CurrentCamera.ViewportSize/2 ;local v19=nil;local v20=true;local v21=false;local v22=false;local function v23(v29) local v30=Ray.new(v29.Position,v29.LookVector).Unit;local v31=nil;local v32=math.huge;local v33=workspace.CurrentCamera.ViewportSize/2 ;for v39,v40 in pairs(v11:GetPlayers()) do if (v40.Character and v40.Character:FindFirstChild(v5) and v40.Character:FindFirstChild("Humanoid") and v40.Character:FindFirstChild("HumanoidRootPart") and (v40~=v11.LocalPlayer) and ((v40.Team~=v11.LocalPlayer.Team) or  not v0)) then local v49,v50=workspace.CurrentCamera:WorldToViewportPoint(v40.Character[v5].Position);local v51=(Vector2.new(v49.X,v49.Y) -v33).Magnitude;if (v50 and (v51<=v1)) then local v54=0;local v55;while true do if (v54==0) then v55=(v40.Character[v5].Position-v30:ClosestPoint(v40.Character[v5].Position)).Magnitude;if (v55<v32) then local v67=0;while true do if (v67==0) then v32=v55;v31=v40;break;end end end break;end end end end end return v31;end local function v24() v12.Position=workspace.CurrentCamera.ViewportSize/2 ;end local function v25(v35) if (v4 and v35 and v35.Character) then local v41=0;local v42;while true do if (v41==(0 + 0)) then v42=Instance.new("Highlight");v42.Adornee=v35.Character;v41=2 -1 ;end if (v41==(2 + 0)) then v42.Parent=v35.Character;break;end if (v41==1) then v42.FillColor=Color3.fromRGB(1013 -758 ,1080 -(802 + 150) ,128);v42.OutlineColor=Color3.fromRGB(255,0,0 -0 );v41=3 -1 ;end end end end local function v26(v36) if (v4 and v36 and v36.Character and v36.Character:FindFirstChildOfClass("Highlight")) then v36.Character:FindFirstChildOfClass("Highlight"):Destroy();end end local function v27(v37) if (v37 and v37.Character and v37.Character:FindFirstChild("HumanoidRootPart")) then local v43=v37.Character.HumanoidRootPart.Velocity;local v44=v37.Character[v5].Position;local v45=v44 + (v43 * v3) ;return v45;end return nil;end local function v28() local v38=0 + 0 ;while true do if (v38==(999 -(915 + 82))) then v22=false;break;end if (v38==(0 -0)) then if v22 then return;end v22=true;v38=1 + 0 ;end if ((1 -0)==v38) then v21= not v21;wait(0.3);v38=2;end end end loop=v8.RenderStepped:Connect(function() if v20 then v24();local v46=v11.LocalPlayer.Character;local v47=workspace.CurrentCamera;local v48=workspace.CurrentCamera.ViewportSize/(1189 -(1069 + 118)) ;if v6 then if v9:IsKeyDown(v7) then v28();end else v21=v9:IsMouseButtonPressed(Enum.UserInputType.MouseButton2);end if v21 then local v52=0 -0 ;while true do if (0==v52) then if  not v19 then local v63=0 -0 ;while true do if (v63==0) then v19=v23(v47.CFrame);v25(v19);break;end end end if (v19 and v19.Character and v19.Character:FindFirstChild(v5)) then local v64=0 + 0 ;local v65;while true do if (v64==1) then v12.Color=Color3.fromRGB(0,453 -198 ,0 + 0 );break;end if (v64==(791 -(368 + 423))) then v65=v27(v19);if v65 then workspace.CurrentCamera.CFrame=workspace.CurrentCamera.CFrame:Lerp(CFrame.new(v47.CFrame.Position,v65),v2);end v64=3 -2 ;end end else v12.Color=Color3.fromRGB(273 -(10 + 8) ,128,492 -364 );end break;end end else if (v19 and v4) then v26(v19);end v19=nil;v12.Color=Color3.fromRGB(255,570 -(416 + 26) ,408 -280 );end end end);
+pcall(function()
+    u5:SetCore("SendNotification",{Title="Aimbot Loaded",Text="Press [E] to toggle",Duration=5})
+end)
+
+local function f1()
+    local p1,p2=nil,u9
+    for _,plr in pairs(u1:GetPlayers()) do
+        if plr~=u2 and plr.Character and plr.Character:FindFirstChild(u12) and plr.Character:FindFirstChild("Humanoid") then
+            if plr.Character.Humanoid.Health<=0 then continue end
+            if u13 and plr.Team==u2.Team then continue end
+            local p3,onScreen=u7:WorldToViewportPoint(plr.Character[u12].Position)
+            if not onScreen then continue end
+            local d=(Vector2.new(p3.X,p3.Y)-u7.ViewportSize/2).Magnitude
+            if d<p2 then
+                if u15 then
+                    local r=RaycastParams.new()
+                    r.FilterDescendantsInstances={u2.Character,plr.Character}
+                    r.FilterType=Enum.RaycastFilterType.Blacklist
+                    r.IgnoreWater=true
+                    local res=workspace:Raycast(u7.CFrame.Position,(plr.Character[u12].Position-u7.CFrame.Position),r)
+                    if res and res.Instance then continue end
+                end
+                p1,p2=plr,d
+            end
+        end
+    end
+    return p1
+end
+
+local function f2(part)
+    if not part then return nil end
+    return part.Position + (part.Velocity*u11)
+end
+
+local h
+u4.InputBegan:Connect(function(i,gpe)
+    if not gpe and i.KeyCode==u8 then
+        u6=not u6
+        pcall(function()
+            u5:SetCore("SendNotification",{Title="Aimbot",Text="Aimbot "..(u6 and "Enabled" or "Disabled"),Duration=3})
+        end)
+    end
+end)
+
+local function hlt(plr)
+    if not u14 then return end
+    if h then h:Destroy() end
+    local hl=Instance.new("Highlight")
+    hl.Adornee=plr.Character
+    hl.FillColor=Color3.fromRGB(0,255,0)
+    hl.OutlineColor=Color3.fromRGB(255,0,0)
+    hl.Parent=plr.Character
+    h=hl
+end
+local function rhlt()
+    if h then h:Destroy() h=nil end
+end
+
+u3.RenderStepped:Connect(function()
+    c1.Position=u7.ViewportSize/2
+    if not u6 then rhlt() return end
+    local t=f1()
+    if t and t.Character and t.Character:FindFirstChild(u12) then
+        local pos=f2(t.Character[u12])
+        if pos then
+            u7.CFrame=u7.CFrame:Lerp(CFrame.new(u7.CFrame.Position,pos),u10)
+            hlt(t)
+            c1.Color=Color3.fromRGB(0,255,0)
+        end
+    else
+        c1.Color=Color3.fromRGB(255,0,0)
+        rhlt()
+    end
+end)
+
