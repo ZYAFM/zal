@@ -1,5 +1,5 @@
 local u1,u2,u3,u4,u5,u6,u7=game:GetService("Players"),game:GetService("Players").LocalPlayer,game:GetService("RunService"),game:GetService("UserInputService"),game:GetService("StarterGui"),workspace.CurrentCamera,true
-local u8=Enum.KeyCode.E
+local u8=Enum.KeyCode.F7
 local u9=100
 local u10=0.15
 local u11=0.12
@@ -17,7 +17,7 @@ c1.Transparency=0.75
 c1.Position=u7.ViewportSize/2
 
 pcall(function()
-    u5:SetCore("SendNotification",{Title="Aimbot Loaded",Text="Press [E] to toggle",Duration=5})
+    u5:SetCore("SendNotification",{Title="Aimbot Loaded",Text="Press [F7] to toggle",Duration=5})
 end)
 
 local function f1()
@@ -51,11 +51,13 @@ local function f2(part)
 end
 
 local h
+local aimbotEnabled = false
+
 u4.InputBegan:Connect(function(i,gpe)
     if not gpe and i.KeyCode==u8 then
-        u6=not u6
+        aimbotEnabled = not aimbotEnabled
         pcall(function()
-            u5:SetCore("SendNotification",{Title="Aimbot",Text="Aimbot "..(u6 and "Enabled" or "Disabled"),Duration=3})
+            u5:SetCore("SendNotification",{Title="Aimbot",Text="Aimbot "..(aimbotEnabled and "Enabled" or "Disabled"),Duration=3})
         end)
     end
 end)
@@ -76,7 +78,7 @@ end
 
 u3.RenderStepped:Connect(function()
     c1.Position=u7.ViewportSize/2
-    if not u6 then rhlt() return end
+    if not aimbotEnabled then rhlt() return end
     local t=f1()
     if t and t.Character and t.Character:FindFirstChild(u12) then
         local pos=f2(t.Character[u12])
@@ -90,4 +92,3 @@ u3.RenderStepped:Connect(function()
         rhlt()
     end
 end)
-
